@@ -1,0 +1,46 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: "Prompt", sans-serif;
+    color: #F54452;
+}
+
+header {
+    background-image: url("../images/smoothie-shack-header.jpeg");
+    max-width: 960px;
+    height: 150px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    margin: 0 auto;
+}
+header h1, header h2 {
+    color: #11AB94;
+    margin-left: 2vw;
+}
+
+main {
+    padding-left: 2vw;
+    max-width: 960px;
+    margin: 0 auto;
+    min-height: 74.5vh;
+}
+main h1, main h2 {
+    color: #47AB11;
+}
+main ul {
+    padding-left: 3rem;
+    list-style-type: circle;
+}
+
+
+footer {
+    background-color: #055E51;
+    max-width: 960px;
+    margin: 0 auto;
+    padding-left: 2vw;
+}
+footer p {
+    color: #ffb3b7;
+}
