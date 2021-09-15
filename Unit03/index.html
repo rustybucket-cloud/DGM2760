@@ -5,22 +5,45 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hi/Low Guessing Game</title>
-
+    
+    <link rel="stylesheet" href="custom.css">
     <link rel="stylesheet" href="styles.css">
     <script src="script.js" defer></script>
 </head>
 <body>
     <header>
-        <h1>High/Low Guessing game</h1>
+        <h1 class="text-purple">Guessing game</h1>
     </header>
-    <main>
-        <div>
-            <input type="number" id="guess" placeholder="number">
-            <button onclick="evalGuess()">Guess</button>
-            <p id="feedback"></p>
-        </div>
-        <div id="attempts"></div>
-        <div id="ribbon"></div>
+    <nav class="p-3 bg-primary"></nav>
+    <main class="container-fluid py-0 px-1e">
+        <section class="learning">
+            <h2 class="text-primary">What I learned</h2>
+            <ul class="ml-2">
+                <li>Implement Functions</li>
+                <li>Implement a multi level if-then-else</li>
+                <li>User innerText to provide user feedback</li>
+                <li>Implement a witch statement</li>
+                <li>Dynamically load a graphic</li>
+                <li>Create and append an image element</li>
+            </ul>
+        </section>
+        <section class="game row">
+            <div class="guess col-3">
+                <h2 class="text-primary justify-self-start">Guess</h2>
+                <div>
+                    <input type="number" id="guess" placeholder="number" class="col-12 input-lg d-block">
+                    <button onclick="evalGuess()" class="btn-sm btn-primary col-12 mt-1">Guess</button>
+                    <p id="feedback">Enter your guess</p>
+                </div>
+            </div>
+            <div class="col-3">
+                <h2 class="text-center text-primary">Attempts</h2>
+                <p id="attempts" class="text-center pb-0"></p>
+            </div>
+            <div id="ribbon" class="text-center text-primary col-6 d-flex flex-column justify-content-between align-items-center">
+                <h2>Ribbon</h2>
+            </div>
+        </section>
     </main>
 </body>
 </html>

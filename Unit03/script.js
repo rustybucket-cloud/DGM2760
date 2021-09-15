@@ -34,21 +34,23 @@ function giveAward(guesses) {
         case 1:
         case 2:
         case 3:
-            console.log('Blue ribbon')
+            imagePath = './images/gold-medal.svg'
             break
         case 4: 
         case 5:
         case 6:
-            console.log('Red Ribbon')
+            imagePath = './images/silver-medal.svg'
             break
         case 7:
         case 8:
         case 9:
-            console.log("Yellow Ribbon")
+            imagePath = '.images/bronze-medal.svg'
             break
     }
 
     const awardImage = document.createElement('img') //creates <img>
     const ribbon = document.querySelector('#ribbon')
+    awardImage.setAttribute('src', imagePath)
+    awardImage.classList.add('ribbon');
     ribbon.appendChild(awardImage);
 }

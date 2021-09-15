@@ -4,7 +4,7 @@
     padding: 0;
 }
 
-header, main, footer {
+header, nav, main, footer {
    max-width: 1000px;
    margin: 0 auto; 
 }
@@ -14,3 +14,15 @@ header {
     padding: 2em 1em;
 }
 
+.game {
+    min-height: 200px;
+}
+
+#attempts {
+    font-size: 5em;
+}
+
+.ribbon {
+    width: 8em;
+    height: 8em;
+}
