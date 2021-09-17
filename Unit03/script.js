@@ -48,6 +48,7 @@ function giveAward(guesses) {
             break
     }
 
+    if ()
     const awardImage = document.createElement('img') //creates <img>
     const ribbon = document.querySelector('#ribbon')
     awardImage.setAttribute('src', imagePath)
