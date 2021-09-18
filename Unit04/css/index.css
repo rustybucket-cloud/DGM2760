@@ -1,0 +1,25 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto', sans-serif;
+}
+
+.text-primary {
+    color: #7944F2 !important;
+}
+
+header {
+    background-image: url("../images/stars.jpeg");
+    max-width: 1200px;
+    font-family: 'Mystery Quest', sans-serif;
+}
+
+main {
+    max-width: 1200px;
+}
+
+footer {
+    background-color: #7944F2;
+    max-width: 1200px;
+}
