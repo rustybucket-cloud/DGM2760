@@ -2,15 +2,15 @@
 function determineFortune() {
     //determines month
     let month = getRandomIntInclusive(1,12); //get a random number between 1 and 12
-    const monthInfo = getMonthName(month); //gets the month name based on number
+    const { monthName, days } = getMonthName(month); //gets the month name based on number
 
-    let day = getRandomIntInclusive(1,monthInfo.days); //get a random number between 1 and the number of days in the month
+    let day = getRandomIntInclusive(1,days); //get a random number between 1 and the number of days in the month
 
     //determines fate message
     let fateNumber = getRandomIntInclusive(1,5);
     let fate = getFate(fateNumber);
     
-    const fortune = `On ${monthInfo.name} ${day} you will ${fate}`;
+    const fortune = `On ${monthName} ${day} you will ${fate}`;
     document.querySelector('#fortune').innerText = fortune;
 }
 document.querySelector('.btn-primary').addEventListener('click', determineFortune);
@@ -79,7 +79,7 @@ function getMonthName(month) {
             monthName = "Not a month";
         break;
     }
-    return { name: monthName, days: maxDays };
+    return { monthName: monthName, days: maxDays };
 }
 
 //returns a string with fate message
