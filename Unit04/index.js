@@ -1,9 +1,10 @@
-function determineFortune() {//get a random number between min and max, inclusuve if min and max
+//gets a random month, day, and fotrune and displays a concatenated string on the page
+function determineFortune() {
     //determines month
     let month = getRandomIntInclusive(1,12); //get a random number between 1 and 12
     const monthInfo = getMonthName(month); //gets the month name based on number
 
-    let day = getRandomIntInclusive(1,monthInfo.days); //get a random number between 1 and 30
+    let day = getRandomIntInclusive(1,monthInfo.days); //get a random number between 1 and the number of days in the month
 
     //determines fate message
     let fateNumber = getRandomIntInclusive(1,5);
@@ -14,7 +15,7 @@ function determineFortune() {//get a random number between min and max, inclusuv
 }
 document.querySelector('.btn-primary').addEventListener('click', determineFortune);
 
-//returns a random number between min and max
+//returns a random number between min and max, inclusive of min and max
 function getRandomIntInclusive(min, max) {
     min = Math.ceil(min);
     max = Math.floor(max);
