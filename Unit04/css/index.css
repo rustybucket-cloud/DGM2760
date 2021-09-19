@@ -8,6 +8,12 @@
 .text-primary {
     color: #7944F2 !important;
 }
+.text-red-orange {
+    color: #DB5C55 !important;
+}
+.btn-primary {
+    background-color: #7944F2;
+}
 
 header {
     background-image: url("../images/stars.jpeg");
