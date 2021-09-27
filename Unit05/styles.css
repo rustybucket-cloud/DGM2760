@@ -1,0 +1,38 @@
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    font-family: 'Fira-Sans', sans-serif;
+}
+
+.text-primary {
+    color: #49FDF1 !important;
+}
+.btn-primary {
+    background-color: #42E3AB !important;
+}
+
+.text-secondary {
+    color: #42E34F !important;
+}
+
+header {
+    background-image: url('./Englsih-oak-in-a-field-d2ece6a.png');
+}
+
+main h1 {
+    color: #42E3AB;
+}
+h1 {
+    font-family: 'Lobster', cursive;
+}
+
+footer {
+    background-color: #42E34F;
+    color: white;
+}
+
+header, main, footer {
+    max-width: 1024px;
+    margin: auto;
+}
