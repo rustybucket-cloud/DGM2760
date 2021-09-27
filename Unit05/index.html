@@ -36,26 +36,31 @@
 
                 <div>
                     <h2 class="text-secondary">Adding Tree Practice</h2>
-                    <button class="btn btn-primary col-md-8 col-sm-12 mb-1">Add a Redwood Tree to the End</button>
-                    <button class="btn btn-primary col-md-8 col-sm-12 mb-1">Add a pear to the start</button>
+                    <button class="btn btn-primary col-md-8 col-sm-12 mb-1" id="addRedwood">Add a Redwood Tree to the End</button>
+                    <button class="btn btn-primary col-md-8 col-sm-12 mb-1" id="addPear">Add a pear to the start</button>
 
                     <h2 class="text-secondary">Remove Tree Practice</h2>
-                    <button class="btn btn-primary col-md-8 col-sm-12 mb-1">Removing the first tree</button>
-                    <button class="btn btn-primary col-md-8 col-sm-12 mb-1">Remove the second tree down</button>
-                    <button class="btn btn-primary col-md-8 col-sm-12 mb-1">Remove the last tree</button>
+                    <button class="btn btn-primary col-md-8 col-sm-12 mb-1" id="removeFirst">Removing the first tree</button>
+                    <button class="btn btn-primary col-md-8 col-sm-12 mb-1" id="removeSecond">Remove the second tree down</button>
+                    <button class="btn btn-primary col-md-8 col-sm-12 mb-1" id="removeLast">Remove the last tree</button>
 
                     <h2 class="text-secondary">Manipulating the Tree List</h2>
-                    <button class="btn btn-primary col-md-8 col-sm-12 mb-1">Sort the trees A-Z</button>
-                    <button class="btn btn-primary col-md-8 col-sm-12 mb-1">Make all the Trees Lower Case</button>
+                    <button class="btn btn-primary col-md-8 col-sm-12 mb-1" id="sortAZ">Sort the trees A-Z</button>
+                    <button class="btn btn-primary col-md-8 col-sm-12 mb-1" id="makeLower">Make all the Trees Lower Case</button>
 
                     <h2 class="text-secondary">Getting Any Tree From The List</h2>
-                    <button class="btn btn-primary col-md-8 col-sm-12 mb-1">What is the Name of the Number Three Tree</button>
-                    <button class="btn btn-primary col-md-8 col-sm-12 mb-1">What is the Name of the Number Four Tree</button>
+                    <button class="btn btn-primary col-md-8 col-sm-12 mb-1" id="getNumberThree">What is the Name of the Number Three Tree</button>
+                    
+                    <button class="btn btn-primary col-md-8 col-sm-12 mb-1" id="getNumberFour">What is the Name of the Number Four Tree</button>
                 </div>
             </div>
             <aside class="col-6">
                 <h2 class="text-secondary">The Tree List</h2>
                 <div id="displayResults"></div>
+                <h2 class="text-secondary">Error messages</h2>
+                <div id="error"></div>
+                <h2 class="text-secondary">Messages</h2>
+                <div id="messages"></div>
             </aside>
         </div>
     </main>
