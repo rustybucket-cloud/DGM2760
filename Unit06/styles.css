@@ -29,6 +29,7 @@ main h1, main h2 {
 
 ul {
     margin-left: 2em;
+    margin-bottom: 1em;
 }
 
 .inputs {
@@ -44,7 +45,24 @@ ul {
     resize: none;
     padding: .5em;
 }
+@media screen and (max-width: 620px){
+    .inputs {
+        flex-direction: column;
+    }
+}
 
+button {
+    padding: .5em 1em;
+    border: none;
+    border-radius: 5px;
+    background-color: #F58773;
+    color: white;
+    margin-bottom: 1em;
+}
+
+.story {
+    margin-bottom: 1em;
+}
 .hidden {
     display: none;
 }
@@ -55,4 +73,5 @@ footer {
 }
 footer p {
     text-align: center;
+    color: white;
 }
