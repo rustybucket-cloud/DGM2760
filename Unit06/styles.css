@@ -1,0 +1,58 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto', sans-serif;
+}
+
+header {
+    background-image: url("./images/cat-behaviour.webp");
+    color: #F5AD73;
+    padding: 1em;
+}
+
+header h1 {
+    font-family: 'Birthstone', cursive;
+    font-size: 65px;
+}
+
+main {
+    max-width: 960px;
+    margin: auto;
+    padding: 0 1em;
+    min-height: 74.5vh;
+}
+
+main h1, main h2 {
+    color: #EB6F6E;
+}
+
+ul {
+    margin-left: 2em;
+}
+
+.inputs {
+    display: flex;
+    justify-content: space-between;
+    gap: .5em;
+}
+.inputs h3 {
+    color: #F58773;
+}
+.inputs textarea {
+    width: 100%;
+    resize: none;
+    padding: .5em;
+}
+
+.hidden {
+    display: none;
+}
+
+footer {
+    background-color: #F5AD73;
+    padding: .5em 1em;
+}
+footer p {
+    text-align: center;
+}
