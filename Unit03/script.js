@@ -27,6 +27,7 @@ function evalGuess() {
 
    document.querySelector('#attempts').innerText = totalGuesses
 }
+document.querySelector('#guess-btn').addEventListener('click', evalGuess);
 
 function giveAward(guesses) {
     let imagePath = '#'
@@ -48,10 +49,11 @@ function giveAward(guesses) {
             break
     }
 
-    if ()
-    const awardImage = document.createElement('img') //creates <img>
-    const ribbon = document.querySelector('#ribbon')
-    awardImage.setAttribute('src', imagePath)
-    awardImage.classList.add('ribbon');
-    ribbon.appendChild(awardImage);
+    if (imagePath !== '#') {
+        const awardImage = document.createElement('img') //creates <img>
+        const ribbon = document.querySelector('#ribbon')
+        awardImage.setAttribute('src', imagePath)
+        awardImage.classList.add('ribbon');
+        ribbon.appendChild(awardImage);
+    }
 }

@@ -5,10 +5,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hi/Low Guessing Game</title>
-    
-    <link rel="stylesheet" href="custom.css">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-uWxY/CJNBR+1zjPWmfnSnVxwRheevXITnMqoEIeG1LJrdI0GlVs/9cVSyPYXdcSF" crossorigin="anonymous">
     <link rel="stylesheet" href="styles.css">
-    <script src="script.js" defer></script>
 </head>
 <body>
     <header>
@@ -32,7 +31,7 @@
                 <h2 class="text-primary justify-self-start">Guess</h2>
                 <div>
                     <input type="number" id="guess" placeholder="number" class="col-12 input-lg d-block">
-                    <button onclick="evalGuess()" class="btn-sm btn-primary col-12 mt-1">Guess</button>
+                    <button id="guess-btn" class="btn-sm btn-primary col-12 mt-1">Guess</button>
                     <p id="feedback">Enter your guess</p>
                 </div>
             </div>
@@ -46,4 +45,5 @@
         </section>
     </main>
 </body>
+<script src="script.js"></script>
 </html>
