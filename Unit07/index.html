@@ -5,14 +5,81 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+
+    <link rel="stylesheet" href="styles.css">
+    <script src="index.js" defer></script>
+
+    <!-- Google Fonts-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Italiana&family=Open+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 </head>
 <body>
     <header>
         <h1>The Pizzie Eatsie</h1>
-        <p>Best Pizza in Town!</p>
+        <p>Object Literals</p>
     </header>
     <main>
-        
+        <h1>Pizza Order Form</h1>
+        <h2>What I learned</h2>
+         <ul>
+            <li>Create an object literal with properties and methods</li>
+            <li>Set the properties in an object</li>
+            <li>Access the properties in an object</li>
+            <li>Access the method in an object</li>
+            <li>Use math operators</li>
+            <li>Use template literals</li>                <li>Use querySelector and textContent to dynamically change text on the screen</li>
+        </ul>
+        <form id="order-form">
+            <fieldset>
+                <legend>Crust</legend>
+                <label for="thin">
+                    <input type="radio" value="thin" id="thin" name="crust" checked>Thin
+                </label>
+                <label for="thick">
+                    <input type="radio" value="thick" id="thick" name="crust">Thick
+                </label>
+                <label for="deep-dish">
+                    <input type="radio" value="deep-dish" id="deep-dish" name="crust">Deep Dish
+                </label>
+            </fieldset>
+
+            <fieldset>
+                <legend>Toppings</legend>
+                <label for="pepperoni">
+                    <input type="checkbox" value="pepperoni" id="pepperoni" name="toppings" checked>Peperonies
+                </label>
+                <label for="onions">
+                    <input type="checkbox" value="onions" id="onions" name="toppings">Onions
+                </label>
+                <label for="pineapple">
+                    <input type="checkbox" value="pineapples" id="pineapple" name="toppings">Pineapples
+                </label>
+                <label for="sausage">
+                    <input type="checkbox" value="sausage" id="sausage" name="toppings">Sausage
+                </label>
+            </fieldset>
+
+            <fieldset>
+                <legend>Size</legend>
+                <label for="small">
+                    <input type="radio" value="small" id="small" name="size">Small
+                </label>
+                <label for="medium">
+                    <input type="radio" value="medium" id="medium" name="size" checked>Medium
+                </label>
+                <label for="large">
+                    <input type="radio" value="large" id="large" name="size">Large
+                </label>
+            </fieldset>
+
+            <button type="button" id="buildPizza">Build Pizza</button>
+            <button type="button" id="shoppingList">Shopping List</button>
+        </form>
+        <p id="result"></p>
     </main>
+    <footer>
+        <p>Jacob Patton DGM2760</p>
+    </footer>
 </body>
 </html>

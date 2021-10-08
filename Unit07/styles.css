@@ -1,0 +1,64 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Open Sans', sans-serif;
+}
+
+header {
+    background-image: url("./pizza.jpg");
+    padding: 1em;
+    color: white;
+}
+header h1 {
+    font-family: 'Italiana', sans-serif;
+    font-size: 3em;
+}
+
+main h1 {
+    color: #E06E50;
+}
+main h2 {
+    color: #44944C;
+}
+ul {
+    padding-left: 2em;
+}
+legend {
+    color: #44944C;
+    font-size: 1.4em;
+    margin: 0 .25em;
+}
+fieldset {
+    border: 2px solid #46BEE0;
+}
+fieldset label {
+    display: block;
+    margin: .5em .25em;
+}
+input {
+    margin-right: .25em;
+}
+button {
+    display: block;
+    padding: .5em 1em;
+    min-width: 25%;
+    margin: .5em 0;
+    background-color: #44944C;
+    border: none;
+    color: white;
+}
+main {
+    padding: 0 1em;
+}
+
+footer {
+    background-color: #E06E50;
+    text-align: center;
+    padding: 1em;
+}
+
+header, main, footer {
+    max-width: 960px;
+    margin: auto;
+}
