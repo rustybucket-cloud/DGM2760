@@ -56,5 +56,9 @@ document.querySelector('#sausage').addEventListener('click', () => {
     pizza.selectToppings('sausage')
 })
 
+document.querySelector('#small').addEventListener("click", () => pizza.size = 'small');
+document.querySelector('#medium').addEventListener("click", () => pizza.size = 'medium');
+document.querySelector('#large').addEventListener("click", () => pizza.size = 'large');
+
 document.querySelector('#buildPizza').addEventListener("click", pizza.buildPizza);
 document.querySelector('#shoppingListButton').addEventListener('click', pizza.shoppingList);
