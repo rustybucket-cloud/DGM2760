@@ -42,11 +42,12 @@ input {
 button {
     display: block;
     padding: .5em 1em;
-    min-width: 25%;
+    min-width: 20em;
     margin: .5em 0;
     background-color: #44944C;
     border: none;
     color: white;
+    border-radius: 5px;
 }
 main {
     padding: 0 1em;
