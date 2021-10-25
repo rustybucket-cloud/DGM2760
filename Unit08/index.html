@@ -5,6 +5,14 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Grant's Tomb</title>
+
+    <!-- Google Fonts-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Mono:wght@200;400;500;700&family=Old+Standard+TT:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="styles.css">
+    <script src="index.js" defer></script>
 </head>
 <body>
     <header>
@@ -29,19 +37,14 @@
             <h2>Question of the Day</h2>
             <div class="question">
                 <div id="question">
-                    <h3>Who is burried in Grant's Tomb?</h3>
+                    <h3 id="stem"></h3>
                 </div>
-                <div id="tom">
-                    <p>Tom</p>
-                </div>
-                <div id="Grant">
-                    <p>Grant</p>
-                </div>
-                <div id="sally">
-                    <p>Sally</p>
-                </div>
-                <div id="Jordan">
-                    <p>Jordna</p>
+                <div id="answer1" class="answer"></div>
+                <div id="answer2" class="answer"></div>
+                <div id="answer3" class="answer"></div>
+                <div id="answer4" class="answer"></div>
+                <div class="questionEnd">
+                    <p id="feedback"></p>
                 </div>
             </div>
         </div>

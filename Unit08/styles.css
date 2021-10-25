@@ -1,0 +1,56 @@
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    font-family: 'Noto Sans Mono', sans-serif;
+}
+
+header {
+    background-image: url("./grants-tomb.jpeg");
+    color: #BDF8EC;
+    padding: 0 1em;
+}
+header h1 {
+    font-family: 'Old Standard TT', sans-serif;
+    font-size: 2.5rem;
+}
+
+main {
+    max-width: 960px;
+    margin: auto;
+    padding: 0 1em;
+    min-height: 84vh;
+}
+main ul {
+    margin-left: 1.5em;
+}
+main h1 {
+    color: #8a92c3;
+}
+main h2 {
+    color: #6e9ca0;
+}
+
+.question  div {
+    padding: 1em;
+    background-color: #949494;
+    border-bottom: .1em solid black;
+    color: white;
+}
+div.questionEnd {
+    background-color: #BDF8EB;
+    border-bottom: none;
+    color: black;
+}
+#question {
+    background-color: #669e92;
+}
+div.selected {
+    background-color: #8a92c3;
+}
+
+footer {
+    background-color: #BDC5F8;
+    text-align: center;
+    padding: .5rem;
+}
