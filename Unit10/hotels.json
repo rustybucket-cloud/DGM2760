@@ -1,0 +1,31 @@
+{
+    "hotels": [
+        {
+            "id": "batesMotel",
+            "name": "Bates Motel",
+            "rooms": "20",
+            "gym": "no",
+            "roomTypes": ["Queen", "Double"],
+            "picture": ["./images/bates-motel/bates-motel0.jpg", "./images/bates-motel/bates-motel1.jpg"], 
+            "address": "4019 Highway 88 White Pine Bay, Oregon"
+        },
+        {
+            "id": "hollywoodTowerHotel",
+            "name": "The Hollywood Tower Hotel",
+            "rooms": "150",
+            "gym": "yes",
+            "roomTypes": ["Delux Suite", "King", "Queen", "Double"],
+            "picture": ["./images/hollywood-tower-hotel/hollywood-tower0.jpg", "./images/hollywood-tower-hotel/hollywood-tower1.jpg", "./images/hollywood-tower-hotel/hollywood-tower2.jpg"],
+            "address": "6200 Franklin Ave., Hollywood, California"
+        },
+        {
+            "id": "grandBudapestHotel",
+            "name": "The Grand Budapest Hotel",
+            "rooms": "250",
+            "gym": "yes",
+            "roomTypes": ["Honeymoon Suite", "Delux Suite", "King", "Queen", "Double"],
+            "picture": ["./images/grand-budapest-hotel/grand-budapest0.jpg", "./images/grand-budapest-hotel/grand-budapest1.jpg", "./images/grand-budapest-hotel/grand-budapest2.jpg"],
+            "address": "The Mountains of The Republic of Zubrowka"
+        }
+    ]
+}

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hotel City</title>
+
+    <link rel="stylesheet" href="styles.css">
+    <script src="index.js" defer></script>
+
+    <!--Google Fonts Grand Hotel and Sans Source Pro-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Grand+Hotel&family=Lobster&family=Roboto+Condensed:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=Rubik:wght@300;400;600;700&family=Source+Sans+Pro:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Hotel City</h1>
+            <p>All the rooms you could ever dream of, and more.</p>
+        </div>
+        
+    </header>
+    <main>
+        <div class="container">
+           <h1>Hotel City</h1>
+            <h2>What I Learned</h2>
+            <ul>
+                <li>Create an external JSON file</li>
+                <li>Load the JSON file using the Fetch API</li>
+                <li>How to use a try...catch block</li>
+                <li>How to use asyc...await to make asynchronus calls</li>
+                <li>How to retrieve and store resolves Promise data</li>
+                <li>Display data from the JSON file on the web page using three different buttons</li>
+            </ul>
+
+            <div id="selectAHotel">
+                <h2>Select a Hotel</h2>
+                <div class="hotelOptions">
+                    <button class="hotel" id="batesMotel">The Bates Motel</button>
+                    <button class="hotel" id="hollywoodTowerHotel">The Hollywood Tower Hotel</button>
+                    <button class="hotel" id="grandBudapestHotel">The Grand Budapest Hotel</button>
+                </div>
+            </div>
+
+            <div id="hotelInfo" class="hidden">
+                <h2 id="hotelName"></h2>
+                <p id="address"></p>
+                <div class="roomInfo">
+                    <p id="numberOfRooms"></p>
+                </div>
+                <div class="roomInfo">
+                    <p id="gymAvailable"></p>
+                </div>
+                <div class="roomInfo">
+                    <p id="roomTypes"></p>
+                </div>
+                <div class="slideShow">
+                    <svg height=50 width=50 id="slideLeft">
+                        <polygon points="0,25 50,0 50,50" style="fill: #cdcdcd">
+                    </svg>
+                    <img id="roomPhoto" height=200 width=300 >
+                    <svg height=50 width=50 id="slideRight">
+                        <polygon points="0,50 0,0 50,25" style="fill: #cdcdcd">
+                    </svg>
+                </div>
+                
+            </div> 
+        </div>
+    </main>
+    <footer>
+        <p>Made for DGM2760 by Jacob Patton</p>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,105 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: "Sans Source Pro", sans-serif;
+}
+
+header {
+    background-image: url("./images/header.jpg");
+    padding: 2em 1em;
+    color: #2E8FF5;
+}
+header div.container {
+    max-width: 960px;
+    margin: auto;
+}
+header h1 {
+    font-family: "Grand Hotel", "Sans Source Pro", sans-serif;
+    font-size: 3em;
+}
+
+main {
+    padding-left: 1em;
+    padding-right: 1em;
+}
+main .container{
+    max-width: 960px;
+    margin: auto;
+    min-height: 75vh;
+}
+main h1 {
+    color: #A86B00;
+}
+main h2 {
+    color: #2E8FF5;
+}
+/*what I learned list*/
+main ul {
+    padding-left: 2em;
+    color: #A86B00;
+}
+
+/*boxes that are used to select hotel*/
+.hotelOptions {
+    display: flex;
+}
+.hotelOptions button {
+    border: none;
+    background-color: #A86B00;
+    margin: .5em;
+    padding: 1em;
+    color: white;
+}
+.hotelOptions button:hover {
+    cursor: pointer;
+}
+button.active {
+    background-color: #7c4f02; 
+}
+
+.roomInfo {
+    background-color: #105AA8;
+    color: white;
+    padding: .5em;
+    margin-bottom: .5em;
+    border-radius: 10px;
+    max-width: 20em;
+}
+
+/* .slideShow {
+    display: flex;
+    align-items: center;
+} */
+#slideLeft {
+    left: 10px;
+}
+#slideRight {
+    right: 110px;
+}
+svg {
+    position: relative;
+    bottom: 75px;
+    z-index: 1;
+    opacity: 0;
+    height: 100%;
+}
+svg:hover {
+    opacity: .5;
+}
+img {
+    position: relative;
+    right: 50px;
+}
+
+.hidden {
+    display: none;
+}
+
+footer {
+    background-color: #105AA8;
+    width: 100%;
+    padding: 1em;
+    text-align: center;
+    color: white;
+}
