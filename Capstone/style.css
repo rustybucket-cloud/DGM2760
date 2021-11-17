@@ -120,6 +120,7 @@ main h1 {
     border: 1px solid black;
     display: flex;
     border-radius: 3px;
+    justify-content: space-between;
 }
 .ingredient span select {
     border-radius: 3px;
@@ -161,10 +162,15 @@ main h1 {
     width: 100%;
     margin-left: auto;
 }
-.nutrition {
+.meal-nutrition-data, .meal-ingredients {
     display: flex;
     flex-direction: column;
-    justify-content: flex-end;
+}
+.meal-ingredients {
+    justify-content: flex-start !important;
+}
+.meal-nutrition-data {
+    justify-content: flex-end !important;
 }
 
 footer {

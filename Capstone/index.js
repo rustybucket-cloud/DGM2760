@@ -14,6 +14,7 @@ function addIngredient() {
                     <option value="oz">Oz</option>
                     <option value="slices">Slices</option>
                     <option value="grams">Grams</option>
+                    <option value="each>Each</option>
                 </select>
             </span>
         </label> 
@@ -68,10 +69,14 @@ async function addMeal() {
         const html = `
             <div class="meal">
                 <h3>${mealName}</h3>
-                <ul>
-                    ${ingredientElements}
-                </ul>
-                <h4>Nutrition</h4>
+                <div class="meal-ingredients">
+                    <h4>Ingredients</h4>
+                    <ul>
+                        ${ingredientElements}
+                    </ul>
+                </div>
+                <div class="meal-nutrition-data">
+                    <h4>Nutrition</h4>
                     <ul class="nutrition">
                         <div>
                             <li>Calories</li>
@@ -90,6 +95,7 @@ async function addMeal() {
                             <li>${Math.floor(fat)}</li>  
                         </div>
                     </ul>
+                </div>
             </div>
         `
         document.querySelector(".meal-content").innerHTML += html
