@@ -1,0 +1,115 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: "Open Sans", sans-serif;
+}
+
+h1 {
+    font-family: "Dosis", "Open Sans", sans-serif;
+}
+
+header {
+    background-color: #8DE0F2;
+    color: #e3272e;
+}
+.header-content {
+    padding: .5em;
+    max-width: 960px;
+    margin: 0 auto;
+}
+
+main {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 0 .5em;
+}
+main h1 {
+    color:#D9D055;
+}
+
+.main-content {
+    display: grid;
+    gap: 1em;
+}
+@media screen and (min-width: 650px) {
+    .main-content {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+.add-meal {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1em;
+    background-color: #F23838;
+    padding: .5em;
+    border-radius: 5px;
+}
+.add-meal h2, .add-meal label {
+    color: white;
+}
+.add-meal div {
+    display: flex;
+}
+.add-meal button {
+    padding: .5em;
+    background-color: #D9D055;
+    color: white;
+    font-weight: bold;
+    border-radius: 5px;
+    border: none;
+}
+.add-meal button:focus {
+    outline: 1px solid black;
+}
+.add-meal input {
+    padding: .5em;
+}
+.add-meal * {
+    display: block;
+}
+#mealName {
+    width: 100%;
+    max-width: 12em;
+}
+#mealNameToolTip {
+    position: relative;
+    bottom: 1em;
+    background-color: white;
+    max-width: 10em;
+    text-align: center;
+    color: red;
+    display: none;
+}
+#ingredientToolTip {
+    position: relative;
+    bottom: 1em;
+    background-color: white;
+    max-width: 10em;
+    text-align: center;
+    color: red;
+    display: none;
+}
+.visible {
+    display: block !important;
+}
+.create-new-ingredient {
+    width: 100%;
+    max-width: 3em;
+    border-radius: 100%;
+}
+.ingredients {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+footer {
+    background-color: #8DE0F2;
+    color: white;
+    text-align: center;
+    padding: .5em;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}

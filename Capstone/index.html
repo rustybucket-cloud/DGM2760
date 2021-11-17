@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="style.css">
+    <!-- Google Fonts Dosis and Open Sans -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dosis:wght@300;500;700&family=Open+Sans:ital@0;1&display=swap" rel="stylesheet">
+    
+    <script src="index.js" defer></script>
+
+    <title>Nutrition Center</title>
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <h1>Nutrition Center</h1>
+            <p>Nutrition Data for Your Food</p>
+        </div>
+    </header>
+    <main>
+        <h1>Nutrition Data</h1>
+        <div class="main-content">
+            <div class="add-meal">
+                <h2>Add a meal</h2>
+                <label for="mealName">Meal Name
+                    <input type="text" id="mealName">
+                </label>
+                <p id="mealNameToolTip">Add a meal name</p>
+                <div class="ingredients">
+                    <label>Ingredient
+                        <input type="text" class="add-ingredient">
+                    </label>
+                </div>
+                <p id="ingredientToolTip">Add an ingredient</p>
+                <button type="button" class="create-new-ingredient">+</button>
+                <button type="button" id="createMeal">CREATE MEAL</button> 
+            </div>
+            <div class="meals">
+                <h2>Meals</h2>
+            </div>
+        </div>
+        
+    </main>
+    <footer>
+        <p>Made for DGM 2760</p>
+    </footer>
+</body>
+</html>
