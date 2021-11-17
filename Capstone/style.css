@@ -23,6 +23,7 @@ main {
     max-width: 960px;
     margin: 0 auto;
     padding: 0 .5em;
+    min-height: 100vh;
 }
 main h1 {
     color:#D9D055;
@@ -42,19 +43,20 @@ main h1 {
     display: grid;
     grid-template-columns: 1fr;
     gap: 1em;
-    background-color: #F23838;
     padding: .5em;
     border-radius: 5px;
+    box-shadow: 0 0 5px 3px rgba(0, 0, 0, .2);
+    margin-top: .5em;
 }
 .add-meal h2, .add-meal label {
-    color: white;
+    color: black;
 }
 .add-meal div {
     display: flex;
 }
 .add-meal button {
     padding: .5em;
-    background-color: #D9D055;
+    background-color: #e3272e;
     color: white;
     font-weight: bold;
     border-radius: 5px;
@@ -103,13 +105,57 @@ main h1 {
     display: flex;
     flex-wrap: wrap;
 }
+.ingredient {
+    display: flex;
+    flex-direction: column;
+}
+.ingredient span {
+    border: 1px solid black;
+    display: flex;
+    border-radius: 3px;
+}
+.ingredient span select {
+    border-radius: 3px;
+    border: none;
+}
+.ingredient span input {
+    border: none;
+    max-width: 8em;
+    border-radius: 3px;
+}
+
+/* meals */
+.meal-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: .5em;
+}
+.meal {
+    box-shadow: 0 0 5px 3px rgba(0, 0, 0, .2);
+    border-radius: 5px;
+    padding: .5em;
+}
+.meal h4 {
+    margin-top: .5em;
+}
+.meal ul {
+    list-style-type: none;
+}
+.meal li {
+    display: inline;
+}
+.meal div {
+    display: flex;
+    justify-content: space-between;
+}
+.meal li span {
+    width: 100%;
+    margin-left: auto;
+}
 
 footer {
     background-color: #8DE0F2;
     color: white;
     text-align: center;
     padding: .5em;
-    position: absolute;
-    bottom: 0;
-    width: 100%;
 }

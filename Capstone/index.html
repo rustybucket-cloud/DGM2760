@@ -32,9 +32,22 @@
                 </label>
                 <p id="mealNameToolTip">Add a meal name</p>
                 <div class="ingredients">
-                    <label>Ingredient
-                        <input type="text" class="add-ingredient">
-                    </label>
+                    <div class="ingredient">
+                        <label>Ingredient
+                            <input type="text" class="add-ingredient">
+                        </label>
+                        <label for="quantity">Quantity
+                            <span>
+                                <input type="text" class="quantity">
+                                <select class="quantity-unit">
+                                    <option value="cups">Cups</option>
+                                    <option value="oz">Oz</option>
+                                    <option value="slices">Slices</option>
+                                    <option value="grams">Grams</option>
+                                </select>
+                            </span>
+                        </label> 
+                    </div>
                 </div>
                 <p id="ingredientToolTip">Add an ingredient</p>
                 <button type="button" class="create-new-ingredient">+</button>
@@ -42,6 +55,45 @@
             </div>
             <div class="meals">
                 <h2>Meals</h2>
+                <div class="meal-content">
+                    <div class="meal">
+                        <h3>Breakfast</h3>
+                        <h4>Ingredients</h4>
+                        <ul>
+                            <div>
+                                 <li>Cereal</li>
+                                 <li>2 Cups</li>  
+                            </div>
+                            <div>
+                                 <li>Milk</li>
+                                 <li>1 Cup</li> 
+                            </div>
+                            <div>
+                                 <li>Banana</li>
+                                 <li></li>  
+                            </div>
+                        </ul>
+                        <h4>Nutrition</h4>
+                        <ul class="nutrition">
+                            <div>
+                                <li>Calories</li>
+                                <li>500</li>  
+                            </div>
+                            <div>
+                                <li>Protein</li>
+                                <li>12g</li>  
+                            </div>
+                            <div>
+                                <li>Carbs</li>
+                                <li>20g</li>  
+                            </div>
+                            <div>
+                                <li>Fat</li>
+                                <li>12g</li>  
+                            </div>
+                        </ul>
+                     </div>
+                </div>
             </div>
         </div>
         

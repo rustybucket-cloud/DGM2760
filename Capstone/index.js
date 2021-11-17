@@ -1,49 +1,118 @@
 // create a new ingredient input
 function addIngredient() {
-    const newIngredientLabel = document.createElement("label")
-    const newIngredientInput = document.createElement("input")
-    newIngredientInput.classList.add("add-ingredient")
-    newIngredientLabel.innerText = "Ingredient"
-    newIngredientLabel.append(newIngredientInput)
-    document.querySelector(".ingredients").append(newIngredientLabel)
+    const div = document.createElement("div")
+    div.classList.add("ingredient")
+    const html = `
+        <label>Ingredient
+            <input type="text" class="add-ingredient">
+        </label>
+        <label for="quantity">Quantity
+            <span>
+                <input type="text" class="quantity">
+                <select class="quantity-unit">
+                    <option value="cups">Cups</option>
+                    <option value="oz">Oz</option>
+                    <option value="slices">Slices</option>
+                    <option value="grams">Grams</option>
+                </select>
+            </span>
+        </label> 
+    `
+    div.innerHTML = html
+    document.querySelector(".ingredients").append(div)
 }
 document.querySelector('.create-new-ingredient').addEventListener("click", addIngredient)
 
 // creates a new meal
-function addMeal() {
+async function addMeal() {
     // get name of meal
     const mealName = document.querySelector('#mealName').value
 
-    // get ingredients
+    // get ingredients, quantities, and units
     let ingredients = []
     document.querySelectorAll('.add-ingredient').forEach( ingredient => {
-        ingredients.push(ingredient.value)
+        ingredients.push({ingredient: ingredient.value})
     })
+    const quantities = document.querySelectorAll('.quantity')
+    const units = document.querySelectorAll('.quantity-unit')
+    for (let i = 0; i < ingredients.length; i++) {
+        ingredients[i].quantity = quantities[i].value
+        ingredients[i].unit = units[i].value
+    }
 
     // if entries are valid
     if (mealName !== "" && ingredients[0] !== "") {
+        const data = await getNutritionData(ingredients)
+
+        let calories = 0
+        let protein = 0
+        let carbs = 0
+        let fat = 0
+        data.forEach((ingredient, i) => {
+            calories += ingredient.calories * ingredients[i].quantity
+            protein += ingredient.protein * ingredients[i].quantity
+            carbs += ingredient.carbs * ingredients[i].quantity
+            fat += ingredient.fat * ingredients[i].quantity
+        })
+
         let ingredientElements = ''
         ingredients.forEach( ingredient => {
-            if (ingredient !== "") ingredientElements += `<li>${ingredient}</li>`
+            if (ingredient !== "") ingredientElements += `
+            <div>
+                <li>${ingredient.ingredient}</li>
+                <li>${ingredient.quantity} ${ingredient.unit}</li>  
+            </div>`
         })
         
         // add meal to meals
         const html = `
-            <div>
+            <div class="meal">
                 <h3>${mealName}</h3>
                 <ul>
                     ${ingredientElements}
                 </ul>
+                <h4>Nutrition</h4>
+                    <ul class="nutrition">
+                        <div>
+                            <li>Calories</li>
+                            <li>${Math.floor(calories)}</li>  
+                        </div>
+                        <div>
+                            <li>Protein</li>
+                            <li>${Math.floor(protein)}</li>  
+                        </div>
+                        <div>
+                            <li>Carbs</li>
+                            <li>${Math.floor(carbs)}</li>  
+                        </div>
+                        <div>
+                            <li>Fat</li>
+                            <li>${Math.floor(fat)}</li>  
+                        </div>
+                    </ul>
             </div>
         `
-        document.querySelector(".meals").innerHTML += html
+        document.querySelector(".meal-content").innerHTML += html
 
         // reset add a meal form
         document.querySelector('#mealName').value = ""
         document.querySelector('.ingredients').innerHTML = `
-        <label>Ingredient
-            <input type="text" class="add-ingredient">
-        </label>
+        <div class="ingredient">
+            <label>Ingredient
+                <input type="text" class="add-ingredient">
+            </label>
+            <label for="quantity">Quantity
+                <span>
+                    <input type="text" class="quantity">
+                        <select class="quantity-unit">
+                            <option value="cups">Cups</option>
+                            <option value="oz">Oz</option>
+                            <option value="slices">Slices</option>
+                            <option value="grams">Grams</option>
+                    </select>
+                </span>
+            </label> 
+        </div>
         `
 
         // remove tooltips
@@ -57,3 +126,48 @@ function addMeal() {
     
 }
 document.querySelector('#createMeal').addEventListener("click", addMeal)
+
+// get nutrition data from api
+async function getNutritionData(ingredients) {
+    // arrange data to be sent to api
+    let ingredientList = ''
+    ingredients.forEach( (ingredient, i) => {
+        if (i !== ingredients.length - 1) ingredientList += `${ingredient.ingredient} and `
+        else ingredientList += ingredient.ingredient
+    })
+    // send query
+    try {
+        const data = new Promise((resolve, reject) => {
+            let nutrition = []
+            fetch(`https://nutrition-by-api-ninjas.p.rapidapi.com/v1/nutrition?query=${ingredientList}`, {
+                "method": "GET",
+                "headers": {
+                    "x-rapidapi-host": "nutrition-by-api-ninjas.p.rapidapi.com",
+                    "x-rapidapi-key": "c90b245b31msh46b59787848177ap15892cjsne103b05ba7a8"
+                }
+            })
+            .then( response => response.json())
+            .then(data => {
+                if (data.length !== 0) {
+                    data.forEach((ingredient, i) => {
+                        let name = ingredients[i].ingredient
+                        let calories = ingredient.calories
+                        let fat = ingredient.fat_total_g
+                        let protein = ingredient.protein_g
+                        let carbs = ingredient.carbohydrates_total_g
+                        nutrition.push({name, calories, fat, protein, carbs})
+                    })
+                    resolve(nutrition)
+                }
+                else {
+                    reject("There was an error")
+                }
+            })
+        })
+        return data
+    }
+    catch (err) {
+        console.log(err)
+        return data
+    }
+}
