@@ -95,7 +95,7 @@ async function addMeal() {
         document.querySelector(".meal-content").innerHTML += html
 
         // reset add a meal form
-        document.querySelector('#mealName').value = ""
+        document.querySelector('#mealName').value = "Select One"
         document.querySelector('.ingredients').innerHTML = `
         <div class="ingredient">
             <label>Ingredient
