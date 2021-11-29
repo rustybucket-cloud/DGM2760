@@ -34,11 +34,7 @@ main h1 {
 
 .main-content {
     width: 100%;
-}
-@media screen and (max-width: 650px) {
-    .main-content {
-        flex-direction: column;
-    }
+    margin-bottom: 1em;
 }
 
 .meals {
