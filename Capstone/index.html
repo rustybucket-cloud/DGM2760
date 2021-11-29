@@ -11,6 +11,10 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Dosis:wght@300;500;700&family=Open+Sans:ital@0;1&display=swap" rel="stylesheet">
     
+
+    <!-- Font awesome -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
+
     <script src="index.js" defer></script>
 
     <title>Nutrition Center</title>
@@ -26,42 +30,61 @@
         <h1>Nutrition Data</h1>
         <div class="main-content">
             <div class="add-meal">
-                <h2>Add a meal</h2>
-                <label for="mealName">Meal
-                    <select id="mealName">
-                        <option value="Select One">Select One</option>
-                        <option value="Breakfast">Breakfast</option>
-                        <option value="Lunch">Lunch</option>
-                        <option value="Dinner">Dinner</option>
-                        <option value="Snack">Snack</option>
-                    </select>
-                </label>
-                <p id="mealNameToolTip">Add a meal name</p>
-                <div class="ingredients">
-                    <div class="ingredient">
-                        <label>Ingredient
-                            <input type="text" class="add-ingredient">
-                        </label>
-                        <label for="quantity">Quantity
-                            <span>
-                                <input type="text" class="quantity">
-                                <select class="quantity-unit">
-                                    <option value="cups">Cups</option>
-                                    <option value="oz">Oz</option>
-                                    <option value="slices">Slices</option>
-                                    <option value="grams">Grams</option>
-                                    <option value="each">Each</option>
-                                </select>
-                            </span>
-                        </label> 
-                    </div>
+                <div class="add-meal-header">
+                  <h2>Add a meal</h2>  
+                  <i id="toggleAddMeal" class="fas fa-chevron-down"></i>
                 </div>
-                <p id="ingredientToolTip">Add an ingredient</p>
-                <button type="button" class="create-new-ingredient">+</button>
-                <button type="button" id="createMeal">CREATE MEAL</button> 
+                <div class="add-meal-content hidden">
+                    <label for="mealName">Meal
+                        <select id="mealName">
+                            <option value="Select One">Select One</option>
+                            <option value="Breakfast">Breakfast</option>
+                            <option value="Lunch">Lunch</option>
+                            <option value="Dinner">Dinner</option>
+                            <option value="Snack">Snack</option>
+                        </select>
+                    </label>
+                    <p id="mealNameToolTip">Add a meal name</p>
+                    <div class="ingredients">
+                        <div class="ingredient">
+                            <label>Ingredient
+                                <input type="text" class="add-ingredient">
+                            </label>
+                            <label class="quantity-label" for="quantity">Quantity
+                                <span>
+                                    <input  type="number" class="quantity">
+                                    <select class="quantity-unit">
+                                        <option value="cups">Cups</option>
+                                        <option value="oz">Oz</option>
+                                        <option value="slices">Slices</option>
+                                        <option value="grams">Grams</option>
+                                        <option value="each">Each</option>
+                                    </select>
+                                </span>
+                            </label>
+                        </div>
+                    </div>
+                    <div class="units-info">
+                        <i class="fas fa-question-circle"></i>
+                        <ul class="tooltip">
+                            <li>Cups - measures the volume of liquid or bulk solid cooking ingredients</li>
+                            <li>Oz - measures the volume of liquid</li>
+                            <li>Slices - for bread</li>
+                            <li>Grams - measures the weight of solid food</li>
+                            <li>Each - for produce</li>
+                        </ul>
+                    </div>
+                    <p id="ingredientToolTip">Add an ingredient</p>
+                    <button type="button" class="create-new-ingredient">+</button>
+                    <button type="button" id="createMeal">CREATE MEAL</button> 
+                </div>
             </div>
             <div class="meals">
-                <h2>Meals</h2>
+                <div class="meals-header">
+                    <h2>Meals</h2>
+                    <p class="loading hidden">Loading...</p>
+                </div>
+                <p id="loadingError">There was an error retreiving nutrition data. Please check your spelling.</p>
                 <div class="meal-content">
                 </div>
             </div>

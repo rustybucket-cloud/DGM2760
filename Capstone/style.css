@@ -3,6 +3,9 @@
     margin: 0;
     padding: 0;
     font-family: "Open Sans", sans-serif;
+    --main-bg-color: #0D244A;
+    --header-h1-color: #F1AA8F;
+    --main-h1-color: #8099a1;
 }
 
 h1 {
@@ -10,8 +13,8 @@ h1 {
 }
 
 header {
-    background-color: #8DE0F2;
-    color: #e3272e;
+    background-color: var(--main-bg-color);
+    color: var(--header-h1-color);
 }
 .header-content {
     padding: .5em;
@@ -26,27 +29,54 @@ main {
     min-height: 100vh;
 }
 main h1 {
-    color:#D9D055;
+    color: var(--main-h1-color);
 }
 
 .main-content {
-    display: grid;
-    gap: 1em;
+    width: 100%;
 }
-@media screen and (min-width: 650px) {
+@media screen and (max-width: 650px) {
     .main-content {
-        grid-template-columns: 1fr 1fr;
+        flex-direction: column;
     }
 }
 
+.meals {
+    width: 100%;
+}
 .add-meal {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 1em;
-    padding: .5em;
     border-radius: 5px;
-    box-shadow: 0 0 5px 3px rgba(0, 0, 0, .2);
+    box-shadow: 0 0 5px 3px rgba(0, 0, 0, .2); 
+    padding: .5em;
     margin-top: .5em;
+    width: 100%;
+}
+.add-meal-content {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    transition: height 1s;
+    gap: 1em;
+}
+/* rotate the chevron icon */
+#toggleAddMeal {
+    transition: transform .5s;
+}
+.open {
+    transform: rotate(-180deg);
+}
+.hidden {
+    height: 0;
+    transition: all 1s;
+}
+.hidden * {
+    display: none !important;
+}
+.add-meal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: var(--main-h1-color);
 }
 .add-meal h2, .add-meal label {
     color: black;
@@ -56,7 +86,7 @@ main h1 {
 }
 .add-meal button {
     padding: .5em;
-    background-color: #e3272e;
+    background-color: var(--main-bg-color);
     color: white;
     font-weight: bold;
     border-radius: 5px;
@@ -131,6 +161,34 @@ main h1 {
     max-width: 7em;
     border-radius: 3px;
 }
+.tooltip {
+    transition: opacity 1s, z-index 1.5s;
+    position: absolute;
+    opacity: 0;
+    width: 400px;
+    padding: 1em;
+    background-color: #8DE0F2;
+    color: #e3272e;
+    margin-left: 100px;
+    margin-top: -100px;
+    z-index: -1;
+    border-radius: 5px;
+}
+@media screen and (max-width: 600px) {
+    /* make units tooltip thinner to fit screen */
+    .tooltip {
+        width: 200px;
+    }
+    /* increase touch size on small screens */
+    .fa-question-circle {
+        font-size: 1.5em;
+    }
+}
+.tooltip-visible {
+    opacity: 1 !important;
+    z-index: 1;
+    transition: opacity 1s;
+}
 
 /* meals */
 .meal-content {
@@ -144,6 +202,14 @@ main h1 {
     padding: .5em;
     display: grid;
     grid-template-columns: 1fr;
+}
+.meals-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.hidden {
+    display: none;
 }
 .meal h4 {
     margin-top: .5em;
@@ -172,10 +238,15 @@ main h1 {
 .meal-nutrition-data {
     justify-content: flex-end !important;
 }
+#loadingError {
+    display: none;
+    color: red;
+    margin-bottom: 1em;
+}
 
 footer {
-    background-color: #8DE0F2;
-    color: white;
+    background-color: var(--main-bg-color);
+    color: var(--header-h1-color);
     text-align: center;
     padding: .5em;
 }

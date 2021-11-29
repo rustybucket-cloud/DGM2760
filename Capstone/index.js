@@ -1,28 +1,39 @@
 // create a new ingredient input
 function addIngredient() {
+    // the html of the ingredient and quantity inputs
+    const ingredientHTML = document.querySelector(".ingredient").innerHTML
+    // clone inputs
     const div = document.createElement("div")
     div.classList.add("ingredient")
-    const html = `
-        <label>Ingredient
-            <input type="text" class="add-ingredient">
-        </label>
-        <label for="quantity">Quantity
-            <span>
-                <input type="text" class="quantity">
-                <select class="quantity-unit">
-                    <option value="cups">Cups</option>
-                    <option value="oz">Oz</option>
-                    <option value="slices">Slices</option>
-                    <option value="grams">Grams</option>
-                    <option value="each>Each</option>
-                </select>
-            </span>
-        </label> 
-    `
-    div.innerHTML = html
+    div.innerHTML = ingredientHTML
     document.querySelector(".ingredients").append(div)
 }
 document.querySelector('.create-new-ingredient').addEventListener("click", addIngredient)
+
+// open and close add meal form
+function toggleAddMeal({currentTarget}) {
+    // hide and show add meal form
+    document.querySelector(".add-meal-content").classList.toggle("hidden")
+
+    // toggle icon between up and down
+    currentTarget.classList.toggle("open")
+}
+document.querySelector("#toggleAddMeal").addEventListener("click", toggleAddMeal)
+
+// makes units tooltip visible or hidden
+function showTooltip({currentTarget}) {
+    const tooltip = document.querySelector('.tooltip')
+    // if icon has tooltip-visible class
+    if (currentTarget.classList.contains("tooltip-visible")) {
+        currentTarget.classList.remove("tooltip-visible")
+        tooltip.classList.remove("tooltip-visible")
+    }
+    else {
+        currentTarget.classList.add("tooltip-visible")
+        tooltip.classList.add("tooltip-visible")
+    }
+}
+document.querySelector('.fa-question-circle').addEventListener('click', showTooltip)
 
 // creates a new meal
 async function addMeal() {
@@ -42,18 +53,44 @@ async function addMeal() {
     }
 
     // if entries are valid
-    if (mealName !== "" && ingredients[0] !== "") {
-        const data = await getNutritionData(ingredients)
+    if (mealName !== "Select One" && ingredients[0] !== "") {
+        // show loading indicator
+        document.querySelector(".loading").classList.remove("hidden")
+        document.querySelector("#loadingError").style.display = "none";
 
-        let calories = 0
-        let protein = 0
-        let carbs = 0
-        let fat = 0
+        const data = await getNutritionData(ingredients)
+        if (data === "error") {
+            document.querySelector(".loading").classList.add("hidden")
+            document.querySelector("#loadingError").style.display = "block";
+            return
+        }
+
+        // conversions from selected units
+        const unitConversions = {
+            slices: .38,
+            oz: .03,
+            cups: 2.4,
+            grams: .01
+        }
+        let nutrition = {
+            calory_count: 0,
+            protein: 0,
+            carbs: 0,
+            fat: 0,
+            fiber: 0,
+            sugar: 0 
+        }
+        // calculate nutrition data totals
         data.forEach((ingredient, i) => {
-            calories += ingredient.calories * ingredients[i].quantity
-            protein += ingredient.protein * ingredients[i].quantity
-            carbs += ingredient.carbs * ingredients[i].quantity
-            fat += ingredient.fat * ingredients[i].quantity
+            const { calories, fat_total_g, protein_g, carbohydrates_total_g, fiber_g, sugar_g } = ingredient
+            const quantity = ingredients[i].quantity
+            const unit = unitConversions[ingredients[i].unit]
+            nutrition.calory_count += calories * (quantity * unit)
+            nutrition.protein += protein_g * quantity
+            nutrition.carbs += carbohydrates_total_g * quantity
+            nutrition.fat += fat_total_g * quantity
+            nutrition.fiber += fiber_g
+            nutrition.sugar += sugar_g
         })
 
         let ingredientElements = ''
@@ -64,7 +101,7 @@ async function addMeal() {
                 <li>${ingredient.quantity} ${ingredient.unit}</li>  
             </div>`
         })
-        
+        const { calory_count, protein, carbs, fat, fiber, sugar } = nutrition
         // add meal to meals
         const html = `
             <div class="meal">
@@ -80,7 +117,7 @@ async function addMeal() {
                     <ul class="nutrition">
                         <div>
                             <li>Calories</li>
-                            <li>${Math.floor(calories)}</li>  
+                            <li>${Math.floor(calory_count)}</li>  
                         </div>
                         <div>
                             <li>Protein</li>
@@ -94,6 +131,14 @@ async function addMeal() {
                             <li>Fat</li>
                             <li>${Math.floor(fat)}</li>  
                         </div>
+                        <div>
+                            <li>Sugar</li>
+                            <li>${Math.floor(sugar)}</li>  
+                        </div>
+                        <div>
+                            <li>Fiber</li>
+                            <li>${Math.floor(fiber)}</li>  
+                        </div>
                     </ul>
                 </div>
             </div>
@@ -102,28 +147,19 @@ async function addMeal() {
 
         // reset add a meal form
         document.querySelector('#mealName').value = "Select One"
+        const ingredientHTML = document.querySelector(".ingredient").innerHTML
         document.querySelector('.ingredients').innerHTML = `
         <div class="ingredient">
-            <label>Ingredient
-                <input type="text" class="add-ingredient">
-            </label>
-            <label for="quantity">Quantity
-                <span>
-                    <input type="text" class="quantity">
-                        <select class="quantity-unit">
-                            <option value="cups">Cups</option>
-                            <option value="oz">Oz</option>
-                            <option value="slices">Slices</option>
-                            <option value="grams">Grams</option>
-                    </select>
-                </span>
-            </label> 
+            ${ingredientHTML}
         </div>
         `
 
         // remove tooltips
         document.querySelector('#mealNameToolTip').classList.remove("visible")
         document.querySelector('#ingredientToolTip').classList.remove("visible")
+
+        // hide loading indicator
+        document.querySelector(".loading").classList.add("hidden")
     }
     else {
         if (mealName === "") document.querySelector('#mealNameToolTip').classList.add("visible")
@@ -145,35 +181,39 @@ async function getNutritionData(ingredients) {
     try {
         const data = new Promise((resolve, reject) => {
             let nutrition = []
+            const controller = new AbortController()
+            const { signal } = controller
             fetch(`https://nutrition-by-api-ninjas.p.rapidapi.com/v1/nutrition?query=${ingredientList}`, {
                 "method": "GET",
                 "headers": {
                     "x-rapidapi-host": "nutrition-by-api-ninjas.p.rapidapi.com",
                     "x-rapidapi-key": "c90b245b31msh46b59787848177ap15892cjsne103b05ba7a8"
                 }
-            })
+            }, { signal })
             .then( response => response.json())
             .then(data => {
                 if (data.length !== 0) {
                     data.forEach((ingredient, i) => {
+                        const { calories, fat_total_g, protein_g, carbohydrates_total_g, fiber_g, sugar_g } = ingredient
                         let name = ingredients[i].ingredient
-                        let calories = ingredient.calories
-                        let fat = ingredient.fat_total_g
-                        let protein = ingredient.protein_g
-                        let carbs = ingredient.carbohydrates_total_g
-                        nutrition.push({name, calories, fat, protein, carbs})
+                        nutrition.push({name, calories, fat_total_g, protein_g, carbohydrates_total_g, fiber_g, sugar_g})
                     })
                     resolve(nutrition)
                 }
-                else {
+                /* else {
                     reject("There was an error")
-                }
+                } */
             })
+
+            setTimeout(() => {
+                controller.abort()
+                resolve("error")
+            }, 3000)
         })
         return data
     }
     catch (err) {
-        console.log(err)
-        return data
+        console.log("hey")
+        return "error"
     }
 }
