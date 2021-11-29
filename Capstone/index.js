@@ -78,21 +78,23 @@ async function addMeal() {
             carbs: 0,
             fat: 0,
             fiber: 0,
-            sugar: 0 
+            sugar: 0
         }
+        
         // calculate nutrition data totals
         data.forEach((ingredient, i) => {
             const { calories, fat_total_g, protein_g, carbohydrates_total_g, fiber_g, sugar_g } = ingredient
             const quantity = ingredients[i].quantity
             const unit = unitConversions[ingredients[i].unit]
-            nutrition.calory_count += calories * (quantity * unit)
-            nutrition.protein += protein_g * quantity
-            nutrition.carbs += carbohydrates_total_g * quantity
-            nutrition.fat += fat_total_g * quantity
-            nutrition.fiber += fiber_g
-            nutrition.sugar += sugar_g
+            nutrition.calory_count += calories * quantity * unit //* (quantity * unit)
+            nutrition.protein += protein_g * quantity * unit
+            nutrition.carbs += carbohydrates_total_g * quantity * unit
+            nutrition.fat += fat_total_g * quantity * unit
+            nutrition.fiber += fiber_g * quantity * unit
+            nutrition.sugar += sugar_g * quantity * unit
         })
-
+        
+        
         let ingredientElements = ''
         ingredients.forEach( ingredient => {
             if (ingredient !== "") ingredientElements += `
