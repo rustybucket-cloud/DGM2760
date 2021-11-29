@@ -202,11 +202,9 @@ async function getNutritionData(ingredients) {
                     })
                     resolve(nutrition)
                 }
-                /* else {
-                    reject("There was an error")
-                } */
             })
 
+            // end api call if call takes too long
             setTimeout(() => {
                 controller.abort()
                 resolve("error")
