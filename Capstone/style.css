@@ -80,6 +80,7 @@ main h1 {
     width: 0%;
     background-color: #F1AA8F;
     height: 100%;
+    max-width: 100%;
 }
 
 .set-daily-nutrition {

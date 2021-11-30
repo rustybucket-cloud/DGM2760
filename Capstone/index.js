@@ -210,13 +210,13 @@ function setDailyGoals() {
     dailyGoals.carbs = document.querySelector("#carbs-input").value
 
     document.querySelector("#calories-goal").innerText = dailyGoals.calories
-    document.querySelector(".calories-total").style.width = `${(dailyTotals.calories / dailyGoals.calories) * 100}%`
+    document.querySelector(".calories-total").style.width = `${dailyTotals.calories / dailyGoals.calories * 100}%`
     document.querySelector("#proteins-goal").innerText = dailyGoals.proteins
-    document.querySelector(".proteins-total").style.width = `${(dailyTotals.proteins / dailyGoals.proteins) * 100}%`
+    document.querySelector(".proteins-total").style.width = `${dailyTotals.proteins / dailyGoals.proteins * 100}%`
     document.querySelector("#fats-goal").innerText = dailyGoals.fats
-    document.querySelector(".fats-total").style.width = `${(dailyTotals.fats / dailyGoals.fats) * 100}%`
+    document.querySelector(".fats-total").style.width = `${dailyTotals.fats / dailyGoals.fats * 100}%`
     document.querySelector("#carbs-goal").innerText = dailyGoals.carbs
-    document.querySelector(".carbs-total").style.width = `${(dailyTotals.carbs / dailyGoals.carbs) * 100}%`
+    document.querySelector(".carbs-total").style.width = `${dailyTotals.carbs / dailyGoals.carbs * 100}%`
 }
 document.querySelector("#setNutritionGoals").addEventListener("click", setDailyGoals)
 
