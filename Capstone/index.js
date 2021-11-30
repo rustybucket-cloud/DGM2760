@@ -13,12 +13,13 @@ document.querySelector('.create-new-ingredient').addEventListener("click", addIn
 // open and close add meal form
 function toggleAddMeal({currentTarget}) {
     // hide and show add meal form
-    document.querySelector(".add-meal-content").classList.toggle("hidden")
+    if (currentTarget.id === "toggleAddMeal") document.querySelector(".add-meal-content").classList.toggle("hidden")
+    else if (currentTarget.id === "toggleNutritionGoals") document.querySelector(".nutrition-inputs").classList.toggle("hidden")
 
     // toggle icon between up and down
     currentTarget.classList.toggle("open")
 }
-document.querySelector("#toggleAddMeal").addEventListener("click", toggleAddMeal)
+document.querySelectorAll("i").forEach( item => item.addEventListener("click", toggleAddMeal))
 
 // makes units tooltip visible or hidden
 function showTooltip({currentTarget}) {
@@ -35,8 +36,23 @@ function showTooltip({currentTarget}) {
 }
 document.querySelector('.fa-question-circle').addEventListener('click', showTooltip)
 
+const dailyTotals = {
+    calories: 0,
+    proteins: 0,
+    fats: 0,
+    carbs: 0
+}
+const dailyGoals = {
+    calories: 2000,
+    proteins: 100,
+    fats: 22,
+    carbs: 300
+}
 // creates a new meal
 async function addMeal() {
+    // make meals visible
+    document.querySelector(".meals").classList.remove("hidden")
+
     // get name of meal
     const mealName = document.querySelector('#mealName').value
 
@@ -147,6 +163,21 @@ async function addMeal() {
         `
         document.querySelector(".meal-content").innerHTML += html
 
+        // add to daily totals
+        dailyTotals.calories += Math.floor(calory_count)
+        dailyTotals.proteins += Math.floor(protein)
+        dailyTotals.fats += Math.floor(fat)
+        dailyTotals.carbs += Math.floor(carbs)
+        // change daily total p and graph
+        document.querySelector("#daily-calory-count").innerText = dailyTotals.calories
+        document.querySelector(".calories-total").style.width = `${(dailyTotals.calories / dailyGoals.calories) * 100}%`
+        document.querySelector("#daily-proteins-count").innerText = dailyTotals.proteins
+        document.querySelector(".proteins-total").style.width = `${(dailyTotals.proteins / dailyGoals.proteins) * 100}%`
+        document.querySelector("#daily-fats-count").innerText = dailyTotals.fats
+        document.querySelector(".fats-total").style.width = `${(dailyTotals.fats / dailyGoals.fats) * 100}%`
+        document.querySelector("#daily-carbs-count").innerText = dailyTotals.carbs
+        document.querySelector(".carbs-total").style.width = `${(dailyTotals.carbs / dailyGoals.carbs) * 100}%`
+
         // reset add a meal form
         document.querySelector('#mealName').value = "Select One"
         const ingredientHTML = document.querySelector(".ingredient").innerHTML
@@ -170,6 +201,24 @@ async function addMeal() {
     
 }
 document.querySelector('#createMeal').addEventListener("click", addMeal)
+
+// adjust daily nutrition goals and adjust graph
+function setDailyGoals() {
+    dailyGoals.calories = document.querySelector("#calories-input").value
+    dailyGoals.proteins = document.querySelector("#proteins-input").value
+    dailyGoals.fats = document.querySelector("#fats-input").value
+    dailyGoals.carbs = document.querySelector("#carbs-input").value
+
+    document.querySelector("#calories-goal").innerText = dailyGoals.calories
+    document.querySelector(".calories-total").style.width = `${(dailyTotals.calories / dailyGoals.calories) * 100}%`
+    document.querySelector("#proteins-goal").innerText = dailyGoals.proteins
+    document.querySelector(".proteins-total").style.width = `${(dailyTotals.proteins / dailyGoals.proteins) * 100}%`
+    document.querySelector("#fats-goal").innerText = dailyGoals.fats
+    document.querySelector(".fats-total").style.width = `${(dailyTotals.fats / dailyGoals.fats) * 100}%`
+    document.querySelector("#carbs-goal").innerText = dailyGoals.carbs
+    document.querySelector(".carbs-total").style.width = `${(dailyTotals.carbs / dailyGoals.carbs) * 100}%`
+}
+document.querySelector("#setNutritionGoals").addEventListener("click", setDailyGoals)
 
 // get nutrition data from api
 async function getNutritionData(ingredients) {

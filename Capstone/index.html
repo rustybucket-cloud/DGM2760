@@ -29,6 +29,74 @@
     <main>
         <h1>Nutrition Data</h1>
         <div class="main-content">
+            <h2>Daily Nutrition</h2>
+            <div class="daily-nutrition">
+                <div class="daily-stats">
+                    <div class="daily-calories">
+                        <p>Calories</p>
+                        <p id="daily-calory-count">0</p>
+                    </div>
+                    <div class="daily-proteins">
+                        <p>Proteins</p>
+                        <p id="daily-proteins-count">0</p>
+                    </div>
+                    <div class="daily-fats">
+                        <p>Fats</p>
+                        <p id="daily-fats-count">0</p>
+                    </div>
+                    <div class="daily-carbs">
+                        <p>Carbs</p>
+                        <p id="daily-carbs-count">0</p>
+                    </div>
+                </div>
+                <div class="graph">
+                    <div>
+                        <div class="calories-graph outer-bar">
+                            <div class="calories-total inner-bar"></div>
+                        </div>   
+                        <p id="calories-goal">2000</p>
+                    </div>
+                    <div>
+                        <div class="proteins-graph outer-bar">
+                            <div class="proteins-total inner-bar"></div>
+                        </div>
+                        <p id="proteins-goal">100</p>
+                    </div>
+                    <div>
+                        <div class="fats-graph outer-bar">
+                            <div class="fats-total inner-bar"></div>
+                        </div>
+                        <p id="fats-goal">22</p>
+                    </div>
+                    <div>
+                        <div class="carbs-graph outer-bar">
+                            <div class="carbs-total inner-bar"></div>
+                        </div>
+                        <p id="carbs-goal">300</p>
+                    </div>
+                </div>
+            </div>
+            <div class="set-daily-nutrition">
+                <div class="nutrition-goals-header">
+                   <h3>Set Daily Nutrition Goals</h3>
+                   <i id="toggleNutritionGoals" class="fas fa-chevron-down"></i>
+                </div>
+                <div class="nutrition-inputs hidden">
+                    <label for="calories-input">Calories
+                        <input type="number" id="calories-input" value="2000">
+                    </label>
+                    <label for="proteins-input">Proteins
+                        <input type="number" id="proteins-input" value="100">
+                    </label>
+                    <label for="fats-input">Fats
+                        <input type="number" id="fats-input" value="22">
+                    </label>
+                    <label for="carbs-input">Carbs
+                        <input type="number" id="carbs-input" value="300">
+                    </label>
+                    <button id="setNutritionGoals">Set Nutrition Goals</button>
+                </div>
+            </div>
             <div class="add-meal">
                 <div class="add-meal-header">
                   <h2>Add a meal</h2>  
@@ -58,7 +126,6 @@
                                         <option value="oz">Oz</option>
                                         <option value="slices">Slices</option>
                                         <option value="grams">Grams</option>
-                                        <option value="each">Each</option>
                                     </select>
                                 </span>
                             </label>
@@ -79,7 +146,7 @@
                     <button type="button" id="createMeal">CREATE MEAL</button> 
                 </div>
             </div>
-            <div class="meals">
+            <div class="meals hidden">
                 <div class="meals-header">
                     <h2>Meals</h2>
                     <p class="loading hidden">Loading...</p>
@@ -89,7 +156,6 @@
                 </div>
             </div>
         </div>
-        
     </main>
     <footer>
         <p>Made for DGM 2760</p>

@@ -37,6 +37,73 @@ main h1 {
     margin-bottom: 1em;
 }
 
+.daily-stats {
+    display: flex;
+    flex-direction: column;
+    gap: .5em;
+    width: 25%;
+}
+.graph {
+    width: 75%;
+}
+.graph p {
+    width: 2em;
+}
+.daily-nutrition {
+    display: flex;
+}
+/* .daily-nutrition > div {
+    width: 100%;
+} */
+.daily-stats div {
+    display: flex;
+    justify-content: space-between;
+}
+.graph {
+    display: flex;
+    flex-direction: column;
+    gap: .5em;
+}
+.graph > div {
+    display: flex;
+    padding-left: .5em;
+}
+.graph > div > p {
+    margin-left: .5em;
+}
+.outer-bar {
+    width: 100%;
+    height: 100%;
+    background-color: var(--main-h1-color);
+}
+.inner-bar {
+    width: 0%;
+    background-color: #F1AA8F;
+    height: 100%;
+}
+
+.set-daily-nutrition {
+    border-radius: 5px;
+    box-shadow: 0 0 5px 3px rgba(0, 0, 0, .2); 
+    padding: .5em;
+    margin-top: .5em;
+}
+.set-daily-nutrition * {
+    display: block;
+}
+.set-daily-nutrition button {
+    padding: .5em;
+    margin-top: .5em;
+}
+.set-daily-nutrition input {
+    padding: .5em;
+}
+.nutrition-goals-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
 .meals {
     width: 100%;
 }
@@ -55,7 +122,7 @@ main h1 {
     gap: 1em;
 }
 /* rotate the chevron icon */
-#toggleAddMeal {
+i {
     transition: transform .5s;
 }
 .open {
