@@ -52,9 +52,6 @@ main h1 {
 .daily-nutrition {
     display: flex;
 }
-/* .daily-nutrition > div {
-    width: 100%;
-} */
 .daily-stats div {
     display: flex;
     justify-content: space-between;
@@ -88,6 +85,9 @@ main h1 {
     box-shadow: 0 0 5px 3px rgba(0, 0, 0, .2); 
     padding: .5em;
     margin-top: .5em;
+}
+.set-daily-nutrition input {
+    font-size: 1em;
 }
 .set-daily-nutrition * {
     display: block;
@@ -259,6 +259,11 @@ i {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: .5em;
+}
+@media screen and (max-width: 650px) {
+    .meal-content {
+        grid-template-columns: 1fr;
+    }
 }
 .meal {
     box-shadow: 0 0 5px 3px rgba(0, 0, 0, .2);
